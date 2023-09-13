@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="SOS.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE SOS</title>
+    <link rel="icon" href="logo.jpg">
+    <style>
+        /* CSS styles for the page layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* CSS styles for the form */
+        form {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* CSS styles for alerts */
+        .alerts {
+            text-align: center;
+        }
+
+        .alert {
+            padding: 10px;
+            background-color: #ffcccb;
+            border: 1px solid #ff0000;
+            margin-bottom: 10px;
+        }
+
+        /* CSS styles for buttons */
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script src="SOS.js"></script>
+    <script src="SOS.json"></script>
+    <script src=<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8JpsWZvC8osyIjYXdOkVL31Ou_ACBwcU&callback=initMap" async defer></script></script>
+    <header>
+        <h1>Disaster Management</h1>
+    </header>
+    <div class="container">
+        <h2>Report a Disaster</h2>
+        <form id="disasterForm">
+            <label for="disasterType">Type of Disaster:</label>
+            <input type="text" id="disasterType" name="disasterType" required>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <h2>Recent Disaster Alerts</h2>
+        <div class="alerts" id="alertList">
+            <!-- Recent alerts will be displayed here using JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission
+        const form = document.getElementById('disasterForm');
+        const alertList = document.getElementById('alertList');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const disasterType = document.getElementById('disasterType').value;
+            const location = document.getElementById('location').value;
+            const description = document.getElementById('description').value;
+
+            // Create a new alert element
+            const alert = document.createElement('div');
+            alert.className = 'alert';
+            alert.innerHTML = `<strong>${disasterType}</strong> reported at ${location}<br>${description}`;
+
+            // Add the new alert to the list
+            alertList.appendChild(alert);
+
+            // Clear the form fields
+            form.reset();
+        });
+    </script>
+        <script>
+            // Your JavaScript code for initializing the map goes here
+            function initMap() {
+                // Create a map and specify the element to display it
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: 40.7128, lng: -74.0060 }, // New York City coordinates
+                    zoom: 12, // Zoom level (adjust as needed)
+                });
+    
+                // Add additional map functionality here
+            }
+        </script>
+    
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescue Relief Agencies</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Rescue Relief Agencies</h1>
+    </header>
+    <div class="container">
+        <h2>Registered Agencies</h2>
+        <ul id="agencyList">
+            <!-- Agencies will be displayed here using JavaScript -->
+        </ul>
+        <h2>Map</h2>
+        <div id="map"></div>
+    </div>
+    <script src="SOS.js"></script>
+</body>
+</html>
